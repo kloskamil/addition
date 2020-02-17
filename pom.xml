@@ -8,7 +8,8 @@
 		<module>addition-services</module>
 		<module>addition-api</module>
 		<module>addition-dao</module>
-	</modules>
+        <module>addition-integration</module>
+    </modules>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -26,6 +27,7 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<spring.boot.version>2.2.4.RELEASE</spring.boot.version>
+		<lombok.version>1.18.10</lombok.version>
 	</properties>
 
 	<dependencyManagement>
@@ -38,7 +40,7 @@
 			<dependency>
 				<groupId>org.projectlombok</groupId>
 				<artifactId>lombok</artifactId>
-				<optional>true</optional>
+				<version>${lombok.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
