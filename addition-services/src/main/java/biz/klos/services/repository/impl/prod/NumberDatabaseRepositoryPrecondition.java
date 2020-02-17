@@ -1,11 +1,11 @@
-package biz.klos.services.repository.impl.mock;
+package biz.klos.services.repository.impl.prod;
 
 import org.springframework.context.annotation.*;
 import org.springframework.core.type.AnnotatedTypeMetadata;
 
 @Configuration
 @PropertySource("classpath:application.properties")
-public class NumberMockRepositoryPrecondition implements Condition, ConfigurationCondition {
+public class NumberDatabaseRepositoryPrecondition implements Condition, ConfigurationCondition {
 
     @Override
     public ConfigurationPhase getConfigurationPhase() {
@@ -14,7 +14,6 @@ public class NumberMockRepositoryPrecondition implements Condition, Configuratio
 
     @Override
     public boolean matches(ConditionContext context, AnnotatedTypeMetadata annotatedTypeMetadata) {
-        return context.getEnvironment().getRequiredProperty("database.mock.enabled", Boolean.class);
+        return !context.getEnvironment().getRequiredProperty("database.mock.enabled", Boolean.class);
     }
-
 }

@@ -1,7 +1,6 @@
 package biz.klos.integration.impl;
 
 import biz.klos.integration.ExternalSystemService;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -15,8 +14,21 @@ public class ExternalSystemServiceImpl implements ExternalSystemService {
         return getNumberFromApi();
     }
 
+    private String applyNewLineFilter(String string) {
+        string = string.substring(0, string.length() - 1);
+        return string;
+    }
+
     private BigDecimal getNumberFromApi() {
-        return null;
+        RestTemplate restTemplate = new RestTemplate();
+        String url = "https://www.random.org/integers/?num=1&min=1&max=999&col=1&base=10&format=plain&rnd=new";
+        String value = restTemplate.getForObject(url, String.class);
+        value = applyNewLineFilter(value);
+        BigDecimal numberFromApi = null;
+        if (value != null) {
+            numberFromApi = new BigDecimal(value);
+        }
+        return numberFromApi;
     }
 
 }
