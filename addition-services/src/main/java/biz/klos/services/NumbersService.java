@@ -1,4 +1,4 @@
-package biz.klos.addition;
+package biz.klos.services;
 
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Service;

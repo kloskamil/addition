@@ -1,5 +1,6 @@
-package biz.klos.addition;
+package biz.klos.api;
 
+import biz.klos.services.NumbersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
